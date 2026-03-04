@@ -29,12 +29,6 @@ Costco missed Q3 FY2025 earnings. Supply chain costs were cited as the primary d
 
 ---
 
-## More projects coming
-- Target vs. Walmart: Demand Forecasting in a Value-Driven Market
-- U.S. Retail Import Dependency: A County-Level Analysis
-- Electronics Distribution Margin Compression: The Avnet Benchmark
-
----
 
 ## Data Philosophy
 Every number in these projects is sourced, cited, and reproducible. See `data-sources.md` in each project folder for full attribution. No paywalled databases — all sources are Easy or Moderate extraction (Census Bureau, BLS, public earnings calls, SEC filings).
