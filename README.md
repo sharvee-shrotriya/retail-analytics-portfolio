@@ -12,8 +12,7 @@
 ## Projects
 
 ### 01 · Costco Supply Chain Restructuring — 2026
-**[View Live Dashboard →](https://yourusername.github.io/retail-analytics-portfolio/costco-supply-chain-2026/)**
-
+**[View Live Dashboard →](https://sharvee-shrotriya.github.io/retail-analytics-portfolio/)**
 > *How exposed is Costco to tariff escalation — and is their restructuring strategy actually enough?*
 
 Costco missed Q3 FY2025 earnings. Supply chain costs were cited as the primary driver. This project builds a procurement intelligence brief answering one question: what does Costco's sourcing restructuring actually look like, and where are the real risks?
