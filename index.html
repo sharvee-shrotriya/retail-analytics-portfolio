@@ -3,651 +3,758 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Costco Supply Chain Restructuring — 2026 Procurement Intelligence Brief</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>The Kirkland Moat — Costco Supply Chain Analysis</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg: #f0ede8;
-  --card: #faf8f5;
-  --card-alt: #ffffff;
-  --ink: #1a1a1a;
-  --ink2: #4a4845;
-  --ink3: #8a8680;
-  --rule: #dddad4;
-  --costco-red: #c8102e;
-  --costco-blue: #005daa;
-  --amber: #d97706;
-  --green: #1a6b4a;
-  --dark: #13141a;
-  --dark2: #1e2130;
-}
+  :root {
+    --ink: #0a0a0a;
+    --paper: #f5f0e8;
+    --accent: #c8102e;
+    --gold: #b8860b;
+    --muted: #6b6560;
+    --rule: #d4cfc6;
+    --costco-red: #c8102e;
+    --sams-blue: #0071ce;
+    --success: #2d6a4f;
+  }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Syne', sans-serif; background: var(--bg); color: var(--ink); font-size: 12.5px; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* ─── PAGE SHELL ─── */
-.page { max-width: 1400px; margin: 0 auto; }
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.6;
+  }
 
-/* ─── MASTHEAD ─── */
-.masthead {
-  background: var(--dark);
-  padding: 0;
-  display: grid;
-  grid-template-columns: 6px 1fr auto;
-}
-.masthead-stripe { background: var(--costco-red); }
-.masthead-body { padding: 26px 36px; }
-.masthead-eyebrow {
-  font-size: 9px; letter-spacing: .18em; text-transform: uppercase;
-  color: #555b6e; font-weight: 600; margin-bottom: 8px;
-  display: flex; align-items: center; gap: 10px;
-}
-.masthead-eyebrow::after { content:''; flex:1; height:1px; background:#252836; }
-.masthead h1 {
-  font-family: 'Instrument Serif', serif;
-  font-size: 28px; font-weight: 400; color: #fff; line-height: 1.15;
-}
-.masthead h1 span { color: #e8a0a8; font-style: italic; }
-.masthead-meta {
-  padding: 26px 36px 26px 0;
-  display: flex; flex-direction: column; justify-content: flex-end;
-  align-items: flex-end; gap: 4px;
-}
-.masthead-meta .tag {
-  font-size: 9px; letter-spacing: .12em; text-transform: uppercase;
-  background: #252836; color: #6b7280; padding: 4px 10px; border-radius: 2px;
-}
-.masthead-meta .tag.active { background: #2d1f22; color: #e8a0a8; }
-.masthead-sub {
-  font-size: 11px; color: #555b6e; margin-top: 8px; line-height: 1.6;
-}
+  .masthead {
+    border-bottom: 3px solid var(--ink);
+  }
 
-/* ─── ALERT ─── */
-.alert {
-  background: #1e0f12;
-  border-left: 4px solid var(--costco-red);
-  padding: 11px 36px;
-  display: flex; align-items: center; gap: 12px;
-  font-size: 11.5px; color: #c8a0a6;
-}
-.alert strong { color: #f0c0c6; }
-.pulse { width:7px; height:7px; background:var(--costco-red); border-radius:50%; flex-shrink:0; animation: p 2s infinite; }
-@keyframes p { 0%,100%{opacity:1;} 50%{opacity:.3;} }
+  .masthead-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 48px;
+    border-bottom: 1px solid var(--rule);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
 
-/* ─── GRID ─── */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 14px;
-  padding: 22px 24px 32px;
-}
+  .masthead-hero {
+    padding: 40px 48px 32px;
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 48px;
+    align-items: end;
+  }
 
-/* ─── CARD BASE ─── */
-.card {
-  background: var(--card);
-  border: 1px solid var(--rule);
-  border-radius: 3px;
-  padding: 18px 20px;
-}
-.card-dark {
-  background: var(--dark2);
-  border-color: #252836;
-}
-.clabel {
-  font-size: 8.5px; letter-spacing: .15em; text-transform: uppercase;
-  font-weight: 700; color: var(--ink3); margin-bottom: 10px;
-  display: flex; align-items: center; gap: 8px;
-}
-.clabel::after { content:''; flex:1; height:1px; background: var(--rule); }
-.card-dark .clabel { color: #3a4050; }
-.card-dark .clabel::after { background: #252836; }
-.chtitle {
-  font-family: 'Instrument Serif', serif;
-  font-size: 15px; font-weight: 400; line-height: 1.3;
-  margin-bottom: 6px;
-}
-.card-dark .chtitle { color: #e0e4f0; }
-.chsub { font-size: 11px; color: var(--ink3); line-height: 1.55; }
-.card-dark .chsub { color: #555b6e; }
+  .kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
 
-/* ─── KPI STRIP ─── */
-.kpi-strip { grid-column: span 12; display: grid; grid-template-columns: repeat(5,1fr); gap: 12px; }
-.kpi {
-  background: var(--card-alt);
-  border: 1px solid var(--rule);
-  border-radius: 3px;
-  padding: 16px 18px;
-  position: relative; overflow: hidden;
-}
-.kpi::after {
-  content: attr(data-label);
-  position: absolute; bottom: 0; right: 0;
-  font-family: 'DM Mono', monospace;
-  font-size: 52px; font-weight: 500;
-  color: rgba(0,0,0,.03); line-height: 1;
-  padding: 0 4px;
-}
-.kpi-top {
-  font-size: 8.5px; letter-spacing: .14em; text-transform: uppercase;
-  font-weight: 700; color: var(--ink3); margin-bottom: 10px;
-}
-.kpi-num {
-  font-family: 'Instrument Serif', serif;
-  font-size: 34px; line-height: 1; margin-bottom: 4px;
-}
-.kpi-desc { font-size: 10.5px; color: var(--ink2); line-height: 1.4; }
-.kpi-badge {
-  display: inline-flex; align-items: center; gap: 4px;
-  font-size: 9px; font-weight: 700; padding: 2px 7px;
-  border-radius: 2px; margin-top: 6px;
-}
-.b-red { background:#fde8ec; color:var(--costco-red); }
-.b-blue { background:#e6f0fa; color:var(--costco-blue); }
-.b-green { background:#e2f3ec; color:var(--green); }
-.b-amber { background:#fef3e2; color:var(--amber); }
-.b-grey { background:#f0ede8; color:var(--ink3); }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 6vw, 80px);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
 
-/* ─── SOURCING SUNBURST / BAR ─── */
-.sourcing-card { grid-column: span 4; }
-.src-row {
-  display: flex; align-items: center; gap: 10px;
-  margin-bottom: 9px;
-}
-.src-flag { font-size: 16px; flex-shrink: 0; width: 24px; text-align: center; }
-.src-info { min-width: 100px; }
-.src-name { font-size: 11px; font-weight: 600; color: var(--ink); }
-.src-note { font-size: 9.5px; color: var(--ink3); }
-.src-bar-wrap { flex: 1; }
-.src-bar-bg { height: 7px; background: var(--rule); border-radius: 4px; overflow: hidden; }
-.src-bar-fill { height: 100%; border-radius: 4px; }
-.src-pct { font-family:'DM Mono',monospace; font-size:11px; color:var(--ink); min-width:36px; text-align:right; }
-.src-risk {
-  font-size: 8px; letter-spacing:.08em; text-transform:uppercase;
-  font-weight:700; padding:2px 6px; border-radius:2px; flex-shrink:0;
-}
-.r-crit { background:#fde8ec; color:var(--costco-red); }
-.r-mod  { background:#fef3e2; color:var(--amber); }
-.r-low  { background:#e2f3ec; color:var(--green); }
+  h1 em { font-style: italic; color: var(--accent); }
 
-/* ─── TARIFF IMPACT ─── */
-.tariff-card { grid-column: span 4; }
-.t-row {
-  padding: 9px 10px; border-radius: 3px;
-  display: grid; grid-template-columns: 1fr 80px 55px;
-  align-items: center; gap: 8px;
-  margin-bottom: 6px; border: 1px solid transparent;
-}
-.t-row.now { background:#fff5f6; border-color:#f5cfd4; }
-.t-row.scenario { background: var(--bg); }
-.t-name { font-size: 11px; font-weight: 600; color: var(--ink); }
-.t-sub { font-size: 9.5px; color: var(--ink3); font-weight:400; margin-top:1px; }
-.t-bar-bg { height: 6px; background: var(--rule); border-radius:3px; overflow:hidden; }
-.t-bar-fill { height:100%; border-radius:3px; }
-.t-impact { font-size:11px; font-weight:700; text-align:right; font-family:'DM Mono',monospace; }
-.t-section-label {
-  font-size: 8.5px; letter-spacing:.12em; text-transform:uppercase;
-  color:var(--ink3); font-weight:700; margin: 10px 0 6px;
-}
+  .deck {
+    font-size: 17px;
+    line-height: 1.55;
+    color: #2a2a2a;
+    max-width: 560px;
+    font-weight: 300;
+  }
 
-/* ─── RESPONSE ACTIONS ─── */
-.actions-card { grid-column: span 4; background: var(--dark2); border-color: #252836; }
-.action-item {
-  display: flex; gap: 12px;
-  padding: 10px 0; border-bottom: 1px solid #252836;
-}
-.action-item:last-child { border-bottom: none; padding-bottom: 0; }
-.action-icon {
-  width: 30px; height: 30px; border-radius: 3px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 13px; flex-shrink: 0; margin-top: 1px;
-}
-.action-body {}
-.action-title { font-size: 11.5px; font-weight: 700; color: #d0d4e4; margin-bottom: 3px; }
-.action-desc { font-size: 10.5px; color: #555b6e; line-height: 1.5; }
-.action-status {
-  display: inline-block; margin-top: 4px;
-  font-size: 8.5px; letter-spacing:.1em; text-transform:uppercase;
-  font-weight:700; padding:2px 6px; border-radius:2px;
-}
-.s-active { background:#1a2d1e; color:#4ade80; }
-.s-planned { background:#1a2540; color:#60a5fa; }
-.s-critical { background:#2d1a1a; color:#f87171; }
+  .byline-block {
+    border-left: 3px solid var(--rule);
+    padding-left: 20px;
+  }
 
-/* ─── MARGIN BRIDGE ─── */
-.bridge-card { grid-column: span 6; }
-.bridge-wrap { display:flex; align-items:flex-end; gap:3px; margin-top:14px; height:110px; }
-.bridge-col { display:flex; flex-direction:column; align-items:center; flex:1; }
-.bridge-bar {
-  width:100%; border-radius:3px 3px 0 0;
-  display:flex; align-items:flex-end; justify-content:center;
-  min-height:8px; position:relative;
-}
-.bridge-val {
-  font-family:'DM Mono',monospace; font-size:9.5px; font-weight:500;
-  position:absolute; top:-16px; width:100%; text-align:center;
-}
-.bridge-lbl {
-  font-size: 9px; color:var(--ink3); text-align:center;
-  margin-top:5px; line-height:1.3; width:100%;
-}
-.bridge-axis { width:100%; height:1px; background:var(--rule); margin-bottom:0; grid-column:span 1; }
-.connector {
-  position:absolute; top:50%; right:-3px;
-  width:3px; height:1px; background:var(--rule);
-}
+  .byline-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
 
-/* ─── AI ADOPTION ─── */
-.ai-card { grid-column: span 6; }
-.ai-row { display:flex; align-items:center; gap:10px; margin-bottom:9px; }
-.ai-fn { font-size:11px; color:var(--ink2); min-width:170px; line-height:1.3; }
-.ai-track { flex:1; height:7px; background:var(--rule); border-radius:4px; overflow:hidden; position:relative; }
-.ai-proj { position:absolute; left:0; top:0; height:100%; border-radius:4px; background:#c8daf5; }
-.ai-now  { position:absolute; left:0; top:0; height:100%; border-radius:4px; background:var(--costco-blue); }
-.ai-pcts { font-family:'DM Mono',monospace; font-size:9.5px; color:var(--ink3); min-width:68px; text-align:right; }
-.ai-legend { display:flex; gap:14px; margin-top:12px; }
-.ai-leg-item { display:flex; align-items:center; gap:5px; font-size:10px; color:var(--ink3); }
-.ai-leg-dot { width:8px; height:8px; border-radius:2px; }
+  .byline-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
 
-/* ─── FINDINGS ─── */
-.findings-card { grid-column: span 4; background:#fdf7f0; border-color:#e8d5c0; }
-.findings-card .clabel { color:#b07840; }
-.findings-card .clabel::after { background:#e8d5c0; }
-.finding { display:flex; gap:10px; padding:9px 0; border-bottom:1px solid #e8d5c0; }
-.finding:last-child { border-bottom:none; padding-bottom:0; }
-.fn-num {
-  font-family:'Instrument Serif',serif; font-size:20px;
-  color:var(--amber); line-height:1; min-width:20px; margin-top:1px;
-}
-.fn-text { font-size:11px; color:var(--ink2); line-height:1.55; }
-.fn-text strong { color:var(--ink); font-weight:600; }
+  .byline-title { font-size: 13px; color: var(--muted); line-height: 1.4; }
 
-/* ─── SECTION DIVIDER ─── */
-.divider {
-  grid-column: span 12;
-  display:flex; align-items:center; gap:12px;
-  margin: 2px 0 -2px;
-}
-.div-label {
-  font-size:8px; letter-spacing:.2em; text-transform:uppercase;
-  font-weight:700; color:var(--ink3); white-space:nowrap;
-}
-.div-rule { flex:1; height:1px; background:var(--rule); }
+  .thesis-bar {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 16px 48px;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-style: italic;
+    line-height: 1.5;
+  }
 
-/* ─── FOOTER ─── */
-.footer {
-  background:var(--dark); padding:13px 36px;
-  display:flex; justify-content:space-between; align-items:center;
-  border-top:1px solid #1a1d28;
-}
-.footer-src { font-size:9.5px; color:#3a4050; line-height:1.8; }
-.footer-src strong { color:#555b6e; }
-.footer-note { font-size:9.5px; color:#3a4050; text-align:right; line-height:1.8; }
+  .thesis-bar strong {
+    font-style: normal;
+    color: #f0c040;
+    font-weight: 700;
+  }
 
-/* ─── ANIMATE ─── */
-.grow { animation: growBar .9s cubic-bezier(.4,0,.2,1) both; }
-@keyframes growBar { from { width:0 !important; } }
-.rise { animation: riseBar 1s cubic-bezier(.4,0,.2,1) both; }
-@keyframes riseBar { from { height:0 !important; } }
+  .content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px 48px 80px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 28px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .section-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .section { margin-bottom: 60px; }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-bottom: 40px;
+  }
+
+  .stat-card { background: var(--paper); padding: 24px 20px; }
+
+  .stat-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .stat-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 4px;
+    color: var(--ink);
+  }
+
+  .stat-value.red { color: var(--costco-red); }
+  .stat-value.green { color: var(--success); }
+  .stat-value.gold { color: var(--gold); }
+  .stat-sub { font-size: 12px; color: var(--muted); line-height: 1.4; }
+
+  .compare-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 32px; }
+
+  .compare-table th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 12px 16px;
+    border-bottom: 2px solid var(--ink);
+    text-align: left;
+    background: var(--paper);
+  }
+
+  .compare-table th.costco { color: var(--costco-red); }
+  .compare-table th.sams { color: var(--sams-blue); }
+
+  .compare-table td {
+    padding: 13px 16px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    line-height: 1.45;
+  }
+
+  .compare-table tr:last-child td { border-bottom: none; }
+
+  .compare-table td:first-child {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    width: 200px;
+    flex-shrink: 0;
+    font-weight: 500;
+  }
+
+  .compare-table tr:hover td { background: rgba(0,0,0,0.02); }
+
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .tag.advantage { background: #d4edda; color: #1a5c32; }
+  .tag.disadvantage { background: #fde8e8; color: #8b1a1a; }
+  .tag.neutral { background: #e8e4dc; color: #5a5550; }
+
+  .scenario-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 16px; }
+
+  .scenario-table th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 10px 16px;
+    border-bottom: 2px solid var(--ink);
+    text-align: left;
+    font-weight: 500;
+  }
+
+  .scenario-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); font-size: 13px; line-height: 1.5; vertical-align: top; }
+  .scenario-table tr:last-child td { border-bottom: none; }
+
+  .scenario-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  .badge-red { background: #c8102e; color: white; }
+  .badge-yellow { background: #f0c040; color: #1a1a1a; }
+  .badge-green { background: #2d6a4f; color: white; }
+
+  .bar-chart { margin-bottom: 32px; }
+
+  .bar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+
+  .bar-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    width: 140px;
+    flex-shrink: 0;
+    line-height: 1.3;
+  }
+
+  .bar-track { flex: 1; background: var(--rule); height: 24px; position: relative; overflow: hidden; }
+
+  .bar-fill {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-right: 8px;
+    justify-content: flex-end;
+    min-width: 40px;
+  }
+
+  .bar-fill span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    color: white;
+    white-space: nowrap;
+  }
+
+  .bar-fill.costco-bar { background: var(--costco-red); }
+  .bar-fill.sams-bar { background: var(--sams-blue); }
+  .bar-fill.gold-bar { background: var(--gold); }
+  .bar-fill.green-bar { background: var(--success); }
+
+  .pullquote {
+    border-left: 4px solid var(--accent);
+    padding: 20px 28px;
+    margin: 36px 0;
+    background: rgba(200,16,46,0.03);
+  }
+
+  .pullquote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+
+  .pullquote cite {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-style: normal;
+  }
+
+  .insight-box {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 28px 32px;
+    margin: 32px 0;
+  }
+
+  .insight-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #f0c040;
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+
+  .insight-box p { font-size: 16px; line-height: 1.6; font-weight: 300; }
+  .insight-box strong { color: #f0c040; font-weight: 500; }
+
+  .timeline { margin: 24px 0; }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 20px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: start;
+  }
+
+  .timeline-item:last-child { border-bottom: none; }
+
+  .timeline-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    padding-top: 1px;
+  }
+
+  .timeline-text { font-size: 13px; line-height: 1.5; color: #2a2a2a; }
+  .timeline-text strong { color: var(--ink); font-weight: 500; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-bottom: 32px; }
+  .col-card { background: var(--paper); padding: 24px 20px; }
+  .col-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+
+  .footnotes { border-top: 1px solid var(--rule); padding-top: 24px; margin-top: 48px; }
+
+  .footnotes h3 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+
+  .footnotes ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 32px; }
+
+  .footnotes li {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.5;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .footnotes li::before { content: "-> "; color: var(--accent); }
+
+  @media (max-width: 900px) {
+    .masthead-hero { grid-template-columns: 1fr; gap: 24px; }
+    .stat-grid { grid-template-columns: repeat(2, 1fr); }
+    .two-col, .three-col { grid-template-columns: 1fr; }
+    .content, .masthead-top, .masthead-hero, .thesis-bar { padding-left: 24px; padding-right: 24px; }
+    .footnotes ul { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
-<div class="page">
 
-<!-- MASTHEAD -->
-<div class="masthead">
-  <div class="masthead-stripe"></div>
-  <div class="masthead-body">
-    <div class="masthead-eyebrow">Costco Wholesale · Supply Chain &amp; Procurement Intelligence · Internal Use Only</div>
-    <h1>Supply Chain Restructuring Tracker<br><span>2026 Tariff Exposure &amp; Response Readiness</span></h1>
-    <div class="masthead-sub">Prepared for: Supply Chain &amp; Procurement Leadership &nbsp;|&nbsp; Data as of Q1 2026 &nbsp;|&nbsp; Sources: COST 10-K, Earnings Calls, BLS, U.S. Census Bureau, Deloitte, SupplyChainBrain</div>
+<header class="masthead">
+  <div class="masthead-top">
+    <span>Supply Chain Intelligence</span>
+    <span>Case Study No. 01</span>
+    <span>March 2026</span>
+    <span>Sharvee Shrotriya</span>
   </div>
-  <div class="masthead-meta">
-    <div class="tag active">⚠ Active Tariff Risk</div>
-    <div class="tag" style="margin-top:5px;">Confidential · Internal</div>
-    <div class="tag" style="margin-top:5px;">March 2026</div>
-  </div>
-</div>
 
-<!-- ALERT -->
-<div class="alert">
-  <div class="pulse"></div>
-  <div><strong>Procurement Alert:</strong> Costco Q3 FY2025 EPS of $4.02 missed estimates of $4.11 — higher supply chain costs cited as primary driver. Shares fell 7% on March 7, 2025. China tariff escalation to 145% on key hardlines/electronics categories demands immediate SKU-level exposure reassessment.</div>
-</div>
-
-<div class="grid">
-
-  <!-- KPIs -->
-  <div class="kpi-strip">
-    <div class="kpi" data-label="92">
-      <div class="kpi-top">Membership Renewal Rate (US/CA)</div>
-      <div class="kpi-num" style="color:var(--green)">92%</div>
-      <div class="kpi-desc">Value proposition intact despite tariff headwinds</div>
-      <div class="kpi-badge b-green">↑ Retention Moat</div>
+  <div class="masthead-hero">
+    <div>
+      <div class="kicker">Costco Wholesale · Private Label Strategy · Tariff Analysis</div>
+      <h1>The<br>Kirkland<br><em>Moat</em></h1>
+      <p class="deck">How Kirkland Signature's local sourcing model became a permanent structural advantage — not just a tariff hedge. Costco wins whether tariffs are at 145%, 15%, or 0%.</p>
     </div>
-    <div class="kpi" data-label="4K">
-      <div class="kpi-top">Active SKUs (per warehouse)</div>
-      <div class="kpi-num" style="color:var(--costco-blue)">~4,000</div>
-      <div class="kpi-desc">vs. Walmart's 140K+ — enables faster sourcing pivots</div>
-      <div class="kpi-badge b-blue">Strategic Advantage</div>
-    </div>
-    <div class="kpi" data-label="70">
-      <div class="kpi-top">Kirkland Domestic Production Shift</div>
-      <div class="kpi-num" style="color:var(--costco-red)">70%</div>
-      <div class="kpi-desc">of Kirkland Signature moved to domestic manufacturers</div>
-      <div class="kpi-badge b-red">↑ From ~40% in 2023</div>
-    </div>
-    <div class="kpi" data-label="65">
-      <div class="kpi-top">Membership Fees as % of Net Profit</div>
-      <div class="kpi-num" style="color:var(--amber)">65%</div>
-      <div class="kpi-desc">$1.24B in Q3 2025 alone — primary tariff buffer</div>
-      <div class="kpi-badge b-amber">Profit Shield</div>
-    </div>
-    <div class="kpi" data-label="15">
-      <div class="kpi-top">E-Commerce Growth (Q1 FY2026)</div>
-      <div class="kpi-num" style="color:var(--ink2)">+15%</div>
-      <div class="kpi-desc">YoY; digital channel expanding as physical costs rise</div>
-      <div class="kpi-badge b-grey">Diversification Signal</div>
+    <div class="byline-block">
+      <div class="byline-label">Analyst</div>
+      <div class="byline-name">Sharvee Shrotriya</div>
+      <div class="byline-title">Data Analyst · MBA, MS Business Analytics<br>Supply Chain and Retail Strategy</div>
+      <br>
+      <div class="byline-label">Portfolio</div>
+      <div class="byline-title">sharvee-shrotriya.github.io/<br>retail-analytics-portfolio</div>
     </div>
   </div>
 
-  <!-- SECTION 1 -->
-  <div class="divider"><div class="div-label">Sourcing Exposure &amp; Tariff Scenarios</div><div class="div-rule"></div></div>
+  <div class="thesis-bar">
+    <strong>Core Thesis:</strong> Local sourcing lowers procurement costs, accelerates replenishment, and reduces stockout risk <em>regardless of the tariff environment.</em> The Kirkland model is a durable competitive moat, not a policy response.
+  </div>
+</header>
 
-  <!-- SOURCING MIX -->
-  <div class="card sourcing-card">
-    <div class="clabel">Import Origin Mix (Estimated)</div>
-    <div class="chtitle">Where Costco Sources: Partner Risk Profile</div>
-    <div class="chsub" style="margin-bottom:14px;">Hardlines, electronics &amp; general merch — the highest tariff-exposed categories.</div>
+<main class="content">
 
-    <div class="src-row">
-      <div class="src-flag">🇨🇳</div>
-      <div class="src-info"><div class="src-name">China</div><div class="src-note">Electronics, apparel, hardlines</div></div>
-      <div class="src-bar-wrap"><div class="src-bar-bg"><div class="src-bar-fill grow" style="width:58%;background:var(--costco-red);"></div></div></div>
-      <div class="src-pct">~58%</div>
-      <div class="src-risk r-crit">Critical</div>
+  <section class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>The Trigger: Q3 FY2025 Earnings</h2>
     </div>
-    <div class="src-row">
-      <div class="src-flag">🇺🇸</div>
-      <div class="src-info"><div class="src-name">Domestic (US)</div><div class="src-note">Kirkland, food, perishables</div></div>
-      <div class="src-bar-wrap"><div class="src-bar-bg"><div class="src-bar-fill grow" style="width:18%;background:var(--green);"></div></div></div>
-      <div class="src-pct">~18%</div>
-      <div class="src-risk r-low">Safe</div>
+
+    <p style="font-size:15px; line-height:1.7; color:#2a2a2a; margin-bottom:24px; max-width:720px;">
+      Costco's Q3 FY2025 earnings call was the catalyst. EPS came in at $4.02 vs. a $4.11 estimate. Supply chain costs were cited. Stock dropped 7% in a single session. But buried in the call was a more important signal: the CEO announced Kirkland Signature sourcing was actively shifting toward the countries where products are sold — a structural strategy, not a tactical reaction.
+    </p>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-label">Q3 FY2025 EPS</div>
+        <div class="stat-value red">$4.02</div>
+        <div class="stat-sub">vs. $4.11 estimate — miss driven in part by supply chain costs</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Stock Reaction</div>
+        <div class="stat-value red">−7%</div>
+        <div class="stat-sub">Single-session drop, March 7, 2025</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Gross Margin</div>
+        <div class="stat-value green">11.25%</div>
+        <div class="stat-sub">+41 basis points YoY — expanding despite cost pressure</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Membership Fee Income</div>
+        <div class="stat-value gold">$1.24B</div>
+        <div class="stat-sub">+10.4% YoY · 92.7% renewal rate (US/Canada)</div>
+      </div>
     </div>
-    <div class="src-row">
-      <div class="src-flag">🇲🇽</div>
-      <div class="src-info"><div class="src-name">Mexico</div><div class="src-note">Food, auto parts, textiles</div></div>
-      <div class="src-bar-wrap"><div class="src-bar-bg"><div class="src-bar-fill grow" style="width:12%;background:var(--amber);"></div></div></div>
-      <div class="src-pct">~12%</div>
-      <div class="src-risk r-mod">Elevated</div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">Mar 2025</div>
+        <div class="timeline-text"><strong>Q3 FY2025 earnings call:</strong> CEO confirms Kirkland local sourcing pivot. CFO Millerchip cites ongoing Vietnam diversification. Buyers pulled forward summer goods.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Dec 2025</div>
+        <div class="timeline-text"><strong>Costco files suit</strong> at Court of International Trade seeking full refund of IEEPA tariffs paid on imported goods.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Feb 20, 2026</div>
+        <div class="timeline-text"><strong>SCOTUS rules 6–3</strong> IEEPA tariffs unconstitutional. Trump immediately imposes 10% global tariff under Trade Act of 1974, Section 122.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Feb 21, 2026</div>
+        <div class="timeline-text"><strong>Tariff raised to 15%</strong> for 150 days. Federal appeals court rejects administration's delay of refund process.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Mar 4, 2026</div>
+        <div class="timeline-text"><strong>~2,000 companies</strong> including Costco, FedEx, and L'Oreal sue for tariff refunds. Government liability estimated at $175B.</div>
+      </div>
     </div>
-    <div class="src-row">
-      <div class="src-flag">🇨🇦</div>
-      <div class="src-info"><div class="src-name">Canada</div><div class="src-note">Lumber, raw materials, food</div></div>
-      <div class="src-bar-wrap"><div class="src-bar-bg"><div class="src-bar-fill grow" style="width:8%;background:#9ca3af;"></div></div></div>
-      <div class="src-pct">~8%</div>
-      <div class="src-risk r-mod">Elevated</div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>The Kirkland Moat: What Local Sourcing Actually Does</h2>
     </div>
-    <div class="src-row">
-      <div class="src-flag">🌏</div>
-      <div class="src-info"><div class="src-name">Vietnam / India / Other</div><div class="src-note">Growing diversion from China</div></div>
-      <div class="src-bar-wrap"><div class="src-bar-bg"><div class="src-bar-fill grow" style="width:4%;background:var(--costco-blue);"></div></div></div>
-      <div class="src-pct">~4%</div>
-      <div class="src-risk r-low">Low</div>
+
+    <div class="insight-box">
+      <div class="insight-label">The Central Insight</div>
+      <p>The conventional read is that Costco shifted Kirkland sourcing to dodge tariffs. That's too narrow. <strong>Local sourcing reduces procurement costs, speeds replenishment cycles, and lowers stockout risk regardless of what tariffs are doing.</strong> When tariffs are high, Costco avoids the hit. When tariffs disappear, Costco still runs a leaner supply chain than competitors. This is a structural moat, not a policy hedge.</p>
     </div>
-    <div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--rule);font-size:10px;color:var(--ink3);">
-      ↗ Vietnam share growing post-2023 as Costco actively diversifies away from China per CFO Gary Millerchip's March 2025 earnings call comments.
+
+    <div class="two-col">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.1em; color:var(--muted); margin-bottom:16px; font-weight:500;">Kirkland Sourcing Shift</div>
+        <div class="bar-chart">
+          <div class="bar-row">
+            <div class="bar-label">Domestic Mfg (Current)</div>
+            <div class="bar-track"><div class="bar-fill costco-bar" style="width:70%"><span>70%</span></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Target (2026)</div>
+            <div class="bar-track"><div class="bar-fill green-bar" style="width:85%"><span>85%+</span></div></div>
+          </div>
+        </div>
+        <p style="font-size:12px; color:var(--muted); line-height:1.5;">70% of Kirkland shifted to domestic manufacturers. Savings of 30–40% on cost of goods achieved by consolidating to fewer, deeper supplier relationships.</p>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.1em; color:var(--muted); margin-bottom:16px; font-weight:500;">SKU Efficiency vs Competitors</div>
+        <div class="bar-chart">
+          <div class="bar-row">
+            <div class="bar-label">Costco SKUs</div>
+            <div class="bar-track"><div class="bar-fill costco-bar" style="width:3%"><span style="color:var(--costco-red); background:transparent; padding-left:8px;">~4K</span></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Walmart SKUs</div>
+            <div class="bar-track"><div class="bar-fill sams-bar" style="width:100%"><span>140K+</span></div></div>
+          </div>
+        </div>
+        <p style="font-size:12px; color:var(--muted); line-height:1.5;">Fewer SKUs means faster sourcing pivots. Costco can redirect a single high-volume Kirkland contract during a disruption. Walmart manages 35x more SKUs through the same crisis.</p>
+      </div>
     </div>
+
+    <div class="pullquote">
+      <p>"Higher tariffs are more likely to adversely impact rather than improve our results."</p>
+      <cite>Costco Wholesale, Annual Report 10-K — SEC EDGAR</cite>
+    </div>
+
+    <p style="font-size:15px; line-height:1.7; color:#2a2a2a; max-width:720px;">
+      The 10-K is candid: tariffs hurt. But the strategic response — local sourcing, supplier consolidation, SKU discipline — positions Costco better than any peer regardless of outcome. Membership fee income at 65% of net profit means the core business model doesn't depend on merchandise margins surviving a tariff shock.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>Head to Head: Kirkland vs. Member's Mark</h2>
+    </div>
+
+    <p style="font-size:15px; line-height:1.7; color:#2a2a2a; margin-bottom:28px; max-width:720px;">
+      Sam's Club consolidated all private labels under Member's Mark in 2017. Like Kirkland, it competes on quality and value at warehouse scale. But the sourcing architecture differs in ways that matter when supply chains are under pressure.
+    </p>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Dimension</th>
+          <th class="costco">Kirkland Signature (Costco)</th>
+          <th class="sams">Member's Mark (Sam's Club)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Sourcing Model</td>
+          <td>70% domestic. Actively consolidating to local manufacturers in each sales market. 30–40% COGS savings vs prior mix. <span class="tag advantage">Structural advantage</span></td>
+          <td>Leverages Walmart's global sourcing infrastructure. Broad international supplier base. No disclosed domestic shift target. <span class="tag neutral">Status quo</span></td>
+        </tr>
+        <tr>
+          <td>SKU Count</td>
+          <td>~4,000 total SKUs. Extreme curation forces higher per-SKU volume and deeper supplier relationships. <span class="tag advantage">Faster pivots</span></td>
+          <td>Higher SKU count across broader categories. More flexibility but less leverage per SKU. <span class="tag neutral">Trade-off</span></td>
+        </tr>
+        <tr>
+          <td>Tariff Exposure</td>
+          <td>~1/3 of US sales imported. Lawsuit filed Dec 2025 seeking IEEPA tariff refunds. Actively reducing exposure. <span class="tag advantage">Reducing</span></td>
+          <td>Parent Walmart: ~1/3 of non-food household items from China (Zacks). Limited Member's Mark-specific import disclosure. <span class="tag disadvantage">Higher exposure</span></td>
+        </tr>
+        <tr>
+          <td>Fee Income Buffer</td>
+          <td>Membership fees = ~65% of net income. Business model profit center decoupled from merchandise margin. <span class="tag advantage">Structural buffer</span></td>
+          <td>Sam's Club fees contribute to Walmart segment income, not separately disclosed at same granularity. <span class="tag neutral">Less transparent</span></td>
+        </tr>
+        <tr>
+          <td>Renewal Rate</td>
+          <td>92.7% US/Canada. High member loyalty means Costco absorbs cost shocks without eroding its base. <span class="tag advantage">Loyalty moat</span></td>
+          <td>Sam's Club renewal metrics improving but historically lower than Costco. Exact figure not publicly disclosed. <span class="tag neutral">Competitive gap</span></td>
+        </tr>
+        <tr>
+          <td>Replenishment Speed</td>
+          <td>Domestic sourcing shortens lead times. Lower safety stock requirements. Faster response to demand signals. <span class="tag advantage">Faster cycle</span></td>
+          <td>Global sourcing means longer lead times for many categories. Harder to reduce safety stock without a domestic pivot. <span class="tag disadvantage">Longer lead times</span></td>
+        </tr>
+        <tr>
+          <td>Strategic Framing</td>
+          <td>CEO explicitly frames Kirkland local sourcing as permanent strategy, sustained through multiple trade regimes. <span class="tag advantage">Long-term commitment</span></td>
+          <td>Member's Mark evolution focused on quality, sustainability, and member feedback loops. Sourcing strategy less publicly articulated. <span class="tag neutral">Different focus</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>Scenario Analysis: Costco Wins at Every Tariff Level</h2>
+    </div>
+
+    <p style="font-size:15px; line-height:1.7; color:#2a2a2a; margin-bottom:28px; max-width:720px;">
+      The tariff environment is in flux: IEEPA tariffs struck down, Section 122 tariffs at 15%, court battles ongoing. The point of this analysis is that Costco's competitive position holds regardless of where tariffs land.
+    </p>
+
+    <table class="scenario-table">
+      <thead>
+        <tr>
+          <th>Scenario</th>
+          <th>Tariff Rate</th>
+          <th>Costco Position</th>
+          <th>Competitor Position</th>
+          <th>Kirkland Edge</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="scenario-badge badge-red">High Tariffs</span></td>
+          <td>25–145% (IEEPA peak)</td>
+          <td>~1/3 US sales imported = real exposure. But 70% Kirkland domestically sourced = major buffer on private label. Refund lawsuit filed.</td>
+          <td>Walmart/Sam's: ~1/3 non-food household items from China. Broader import mix = higher exposure across more SKUs.</td>
+          <td>Kirkland's domestic shift insulates highest-margin private label from peak tariff impact. Competitors absorb more of the hit.</td>
+        </tr>
+        <tr>
+          <td><span class="scenario-badge badge-yellow">Current (15%)</span></td>
+          <td>15% global (Section 122)</td>
+          <td>Reduced from peak. Refund litigation ongoing. Local sourcing margins structurally improved vs pre-pivot baseline.</td>
+          <td>Same 15% applies broadly. Import-heavy SKU mix means wide exposure. No equivalent private label sourcing shift underway.</td>
+          <td>30–40% COGS savings from supplier consolidation persist regardless of tariff rate. Kirkland still wins on unit economics.</td>
+        </tr>
+        <tr>
+          <td><span class="scenario-badge badge-green">Zero Tariffs</span></td>
+          <td>0% (fully resolved)</td>
+          <td>Local sourcing still delivers lower procurement costs, faster replenishment, lower stockout risk. Advantage doesn't disappear with tariffs.</td>
+          <td>Competitors regain cost parity on imports. But Kirkland's supplier consolidation, SKU curation, and lead time advantage remain structural.</td>
+          <td>The moat isn't tariff avoidance. It's the operational model. Local sourcing wins on speed and cost even in a tariff-free world.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="insight-box">
+      <div class="insight-label">The Analyst's Conclusion</div>
+      <p>Most coverage frames Kirkland's sourcing pivot as a tariff play. That's the wrong lens. <strong>Costco built an operational advantage that happens to also be tariff-resistant.</strong> Whether the legal battles resolve in Costco's favor, against them, or somewhere in between — the structural unit economics of the Kirkland model remain intact. That's what makes it a moat, not a hedge.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2>Competitive Context: How Peers Are Responding</h2>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.1em; color:var(--muted); margin-bottom:16px; font-weight:500;">China Sourcing Exposure by Retailer</div>
+        <div class="bar-chart">
+          <div class="bar-row">
+            <div class="bar-label">Walmart / Great Value Household</div>
+            <div class="bar-track"><div class="bar-fill sams-bar" style="width:70%"><span>~70%</span></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Target Owned Brands (2017)</div>
+            <div class="bar-track"><div class="bar-fill sams-bar" style="width:60%"><span>60%</span></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Target Owned Brands (Now)</div>
+            <div class="bar-track"><div class="bar-fill gold-bar" style="width:30%"><span>30%</span></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Kirkland Signature Imported</div>
+            <div class="bar-track"><div class="bar-fill costco-bar" style="width:30%"><span>~30%</span></div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.1em; color:var(--muted); margin-bottom:16px; font-weight:500;">Key Observations</div>
+        <div style="font-size:14px; line-height:1.7; color:#2a2a2a;">
+          <p style="margin-bottom:14px;">Target has cut China sourcing from 60% to 30% for owned brands since 2017, targeting below 25% by end of 2026. Target apparel is already at 17%, shifted to Guatemala and Honduras. Owned brands represent roughly 1/3 of Target's total merchandise sales.</p>
+          <p style="margin-bottom:14px;">Walmart/Great Value's non-food household items remain heavily China-sourced (~70% per Zacks), creating significant tariff exposure on its highest-volume private label categories.</p>
+          <p>Costco's Kirkland is ahead of Target's pace and operating at greater scale per SKU. The sourcing pivot began earlier and was structurally motivated, not purely reactive.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2>So What: Strategic Implications</h2>
+    </div>
+
+    <div class="three-col">
+      <div class="col-card">
+        <div class="col-label" style="color:var(--costco-red);">For Costco</div>
+        <p style="font-size:14px; line-height:1.6; color:#2a2a2a;">The Kirkland model is proven. The strategic question is whether it extends to hardlines and electronics where domestic manufacturing is harder to source at volume. If yes, the moat widens. If not, Kirkland's advantage stays concentrated in consumables and soft goods.</p>
+      </div>
+      <div class="col-card">
+        <div class="col-label" style="color:var(--sams-blue);">For Sam's Club</div>
+        <p style="font-size:14px; line-height:1.6; color:#2a2a2a;">Member's Mark's evolution is focused on quality, sustainability, and member engagement — a sound strategy. But without a comparable sourcing architecture shift, Sam's remains more exposed to import cost volatility. Walmart's global sourcing scale is both an asset and a constraint.</p>
+      </div>
+      <div class="col-card">
+        <div class="col-label" style="color:var(--gold);">For Analysts</div>
+        <p style="font-size:14px; line-height:1.6; color:#2a2a2a;">The lesson applies beyond retail: a supply chain advantage that only works in one policy environment isn't a moat — it's a bet. Durable advantages hold across regimes. Any private label strategy worth modeling should be stress-tested at 0%, 15%, and 145% before being called structural.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="footnotes">
+    <h3>Data Sources</h3>
+    <ul>
+      <li>Costco Q3 FY2025 Earnings Call Transcript (Motley Fool / Seeking Alpha)</li>
+      <li>Costco Annual Report 10-K — SEC EDGAR</li>
+      <li>Court of International Trade filings — courthousenews.com</li>
+      <li>SCOTUS IEEPA ruling, Feb 20, 2026 — CBS News</li>
+      <li>Walmart / Great Value China sourcing — Zacks Investment Research</li>
+      <li>Target owned brand sourcing — Target Corporation investor presentations</li>
+      <li>Sam's Club Member's Mark strategy — Retail Dive, Blue Book Services</li>
+      <li>Sam's Club brand consolidation — Wikipedia</li>
+      <li>Tariff litigation coverage — Reuters, CBS News, MarketWatch</li>
+    </ul>
   </div>
 
-  <!-- TARIFF SCENARIO -->
-  <div class="card tariff-card">
-    <div class="clabel">Scenario Modeling</div>
-    <div class="chtitle">Tariff Impact on Gross Margin by Scenario</div>
-    <div class="chsub" style="margin-bottom:12px;">Modeled against Costco's hardlines/general merchandise segment (~35% of revenue).</div>
-
-    <div class="t-section-label">Current Exposure</div>
-    <div class="t-row now">
-      <div><div class="t-name">Current State <span style="color:var(--costco-red);font-family:'DM Mono',monospace;font-size:10px;">● LIVE</span></div><div class="t-sub">145% China rate · 25% MX/CA food tariff</div></div>
-      <div class="t-bar-bg"><div class="t-bar-fill grow" style="width:82%;background:var(--costco-red);"></div></div>
-      <div class="t-impact" style="color:var(--costco-red);">−3.8%</div>
-    </div>
-
-    <div class="t-section-label">Mitigation Scenarios</div>
-    <div class="t-row scenario">
-      <div><div class="t-name">Inventory Pre-Buy</div><div class="t-sub">Stockpile at pre-tariff prices (in progress)</div></div>
-      <div class="t-bar-bg"><div class="t-bar-fill grow" style="width:35%;background:var(--amber);"></div></div>
-      <div class="t-impact" style="color:var(--amber);">−1.5%</div>
-    </div>
-    <div class="t-row scenario">
-      <div><div class="t-name">Vendor Negotiation</div><div class="t-sub">Pressure suppliers to absorb tariff delta</div></div>
-      <div class="t-bar-bg"><div class="t-bar-fill grow" style="width:28%;background:#9ca3af;"></div></div>
-      <div class="t-impact" style="color:var(--ink3);">−1.2%</div>
-    </div>
-    <div class="t-row scenario">
-      <div><div class="t-name">Vietnam / India Dual Source</div><div class="t-sub">Blended origin shift on key SKUs</div></div>
-      <div class="t-bar-bg"><div class="t-bar-fill grow" style="width:20%;background:var(--costco-blue);"></div></div>
-      <div class="t-impact" style="color:var(--costco-blue);">−0.9%</div>
-    </div>
-    <div class="t-row scenario">
-      <div><div class="t-name">Full Nearshore Pivot (MX)</div><div class="t-sub">40%+ shift; 18–24mo transition cost</div></div>
-      <div class="t-bar-bg"><div class="t-bar-fill grow" style="width:14%;background:var(--green);"></div></div>
-      <div class="t-impact" style="color:var(--green);">−0.5%</div>
-    </div>
-    <div style="margin-top:10px;font-size:9.5px;color:var(--ink3);">* Gross margin impact estimates based on BLS import price indexes, CBP tariff schedules, COST 10-K segment data. Actual impact varies by contract hedging and product mix.</div>
-  </div>
-
-  <!-- PROCUREMENT RESPONSE ACTIONS -->
-  <div class="card actions-card">
-    <div class="clabel">Procurement Response Tracker</div>
-    <div class="chtitle">Costco's Active &amp; Planned Countermeasures</div>
-
-    <div style="margin-top:12px;">
-      <div class="action-item">
-        <div class="action-icon" style="background:#1a2d1e;">📦</div>
-        <div class="action-body">
-          <div class="action-title">Proactive Inventory Stockpiling</div>
-          <div class="action-desc">Pulling forward orders on tariff-exposed categories to lock in pre-tariff pricing. Increases working capital but creates a sell-through runway.</div>
-          <span class="action-status s-active">● Active</span>
-        </div>
-      </div>
-      <div class="action-item">
-        <div class="action-icon" style="background:#1a2540;">🏭</div>
-        <div class="action-body">
-          <div class="action-title">Kirkland Domestic Production (70%)</div>
-          <div class="action-desc">Shifted 70% of Kirkland Signature to U.S. manufacturers via CHIPS Act incentives. Reduces import dependency for highest-margin SKUs.</div>
-          <span class="action-status s-active">● Active</span>
-        </div>
-      </div>
-      <div class="action-item">
-        <div class="action-icon" style="background:#2d1f10;">🔀</div>
-        <div class="action-body">
-          <div class="action-title">Vietnam Sourcing Diversification</div>
-          <div class="action-desc">CFO Millerchip confirmed active shift of product categories to Vietnam since first round of China tariffs. Share currently ~4%, growing.</div>
-          <span class="action-status s-planned">◎ In Progress</span>
-        </div>
-      </div>
-      <div class="action-item">
-        <div class="action-icon" style="background:#2d1a1a;">⚠️</div>
-        <div class="action-body">
-          <div class="action-title">China Vendor Price Negotiations</div>
-          <div class="action-desc">Pressuring Chinese suppliers to absorb tariff delta. High risk — Beijing has taken active role; Walmart faced government pushback for same tactic.</div>
-          <span class="action-status s-critical">⚠ High Risk</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SECTION 2 -->
-  <div class="divider"><div class="div-label">Margin Bridge &amp; AI Adoption</div><div class="div-rule"></div></div>
-
-  <!-- MARGIN BRIDGE -->
-  <div class="card bridge-card">
-    <div class="clabel">Gross Margin Waterfall (General Merchandise Segment)</div>
-    <div class="chtitle">How Tariff Headwinds Erode — and Mitigations Recover — Margin</div>
-    <div class="chsub">Illustrative basis-point bridge from 2025 baseline to 2026 forecast under active mitigation.</div>
-
-    <div class="bridge-wrap">
-      <!-- Baseline -->
-      <div class="bridge-col">
-        <div class="bridge-bar rise" style="height:90px;background:var(--costco-blue);border-radius:3px;">
-          <div class="bridge-val" style="color:var(--costco-blue);">12.8%</div>
-        </div>
-        <div class="bridge-lbl">2025<br>Baseline</div>
-      </div>
-      <!-- Tariff hit -->
-      <div class="bridge-col">
-        <div class="bridge-bar rise" style="height:34px;background:#fde8ec;border:1px dashed var(--costco-red);border-radius:3px;">
-          <div class="bridge-val" style="color:var(--costco-red);">−380bp</div>
-        </div>
-        <div class="bridge-lbl">China<br>Tariffs</div>
-      </div>
-      <div class="bridge-col">
-        <div class="bridge-bar rise" style="height:18px;background:#fef3e2;border:1px dashed var(--amber);border-radius:3px;">
-          <div class="bridge-val" style="color:var(--amber);">−90bp</div>
-        </div>
-        <div class="bridge-lbl">MX/CA<br>Tariffs</div>
-      </div>
-      <!-- Recoveries -->
-      <div class="bridge-col">
-        <div class="bridge-bar rise" style="height:22px;background:#e2f3ec;border:1px solid var(--green);border-radius:3px;">
-          <div class="bridge-val" style="color:var(--green);">+110bp</div>
-        </div>
-        <div class="bridge-lbl">Inventory<br>Pre-Buy</div>
-      </div>
-      <div class="bridge-col">
-        <div class="bridge-bar rise" style="height:18px;background:#e2f3ec;border:1px solid var(--green);border-radius:3px;">
-          <div class="bridge-val" style="color:var(--green);">+90bp</div>
-        </div>
-        <div class="bridge-lbl">Vendor<br>Concessions</div>
-      </div>
-      <div class="bridge-col">
-        <div class="bridge-bar rise" style="height:15px;background:#e2f3ec;border:1px solid var(--green);border-radius:3px;">
-          <div class="bridge-val" style="color:var(--green);">+70bp</div>
-        </div>
-        <div class="bridge-lbl">Kirkland<br>Domestic</div>
-      </div>
-      <div class="bridge-col">
-        <div class="bridge-bar rise" style="height:10px;background:#e2f3ec;border:1px solid var(--green);border-radius:3px;">
-          <div class="bridge-val" style="color:var(--green);">+40bp</div>
-        </div>
-        <div class="bridge-lbl">VN/IN<br>Diversion</div>
-      </div>
-      <!-- Net -->
-      <div class="bridge-col">
-        <div class="bridge-bar rise" style="height:72px;background:var(--dark);border-radius:3px;">
-          <div class="bridge-val" style="color:#e0e4f0;">11.4%</div>
-        </div>
-        <div class="bridge-lbl" style="font-weight:700;color:var(--ink);">2026<br>Forecast</div>
-      </div>
-    </div>
-    <div style="margin-top:10px;font-size:9.5px;color:var(--ink3);">* Illustrative model. Based on COST segment disclosures, BLS tariff schedules, and analyst estimates. Not a financial projection.</div>
-  </div>
-
-  <!-- AI ADOPTION -->
-  <div class="card ai-card">
-    <div class="clabel">Technology Adoption in Supply Chain Functions</div>
-    <div class="chtitle">Retail Industry AI Adoption — Current vs. 12-Month Projection</div>
-    <div class="chsub" style="margin-bottom:16px;">Costco's narrow SKU count (~4K) gives it structural advantage in AI-driven inventory and demand tools vs. broad-assortment peers.</div>
-
-    <div class="ai-row">
-      <div class="ai-fn">Fraud detection &amp; cybersecurity</div>
-      <div class="ai-track">
-        <div class="ai-proj grow" style="width:74%;"></div>
-        <div class="ai-now grow" style="width:64%;"></div>
-      </div>
-      <div class="ai-pcts">64% → 74%</div>
-    </div>
-    <div class="ai-row">
-      <div class="ai-fn">Pricing &amp; promotions optimization</div>
-      <div class="ai-track">
-        <div class="ai-proj grow" style="width:61%;"></div>
-        <div class="ai-now grow" style="width:48%;"></div>
-      </div>
-      <div class="ai-pcts">48% → 61%</div>
-    </div>
-    <div class="ai-row">
-      <div class="ai-fn">Demand forecasting</div>
-      <div class="ai-track">
-        <div class="ai-proj grow" style="width:52%;"></div>
-        <div class="ai-now grow" style="width:38%;"></div>
-      </div>
-      <div class="ai-pcts">38% → 52%</div>
-    </div>
-    <div class="ai-row">
-      <div class="ai-fn">Supply chain visibility</div>
-      <div class="ai-track">
-        <div class="ai-proj grow" style="width:41%;"></div>
-        <div class="ai-now grow" style="width:30%;"></div>
-      </div>
-      <div class="ai-pcts">30% → 41%</div>
-    </div>
-    <div class="ai-row">
-      <div class="ai-fn">Inventory optimization</div>
-      <div class="ai-track">
-        <div class="ai-proj grow" style="width:38%;"></div>
-        <div class="ai-now grow" style="width:26%;"></div>
-      </div>
-      <div class="ai-pcts">26% → 38%</div>
-    </div>
-    <div class="ai-row">
-      <div class="ai-fn">Supplier risk monitoring</div>
-      <div class="ai-track">
-        <div class="ai-proj grow" style="width:34%;"></div>
-        <div class="ai-now grow" style="width:21%;"></div>
-      </div>
-      <div class="ai-pcts">21% → 34%</div>
-    </div>
-
-    <div class="ai-legend">
-      <div class="ai-leg-item"><div class="ai-leg-dot" style="background:var(--costco-blue);"></div>Current (retail industry)</div>
-      <div class="ai-leg-item"><div class="ai-leg-dot" style="background:#c8daf5;"></div>Projected 12 months</div>
-    </div>
-    <div style="margin-top:8px;font-size:9.5px;color:var(--ink3);">Source: Deloitte 2026 Retail Global Outlook · Amperity State of AI in Retail 2025. Costco currently using AI-driven inventory management per company disclosures.</div>
-  </div>
-
-  <!-- KEY FINDINGS -->
-  <div class="card findings-card">
-    <div class="clabel">Procurement Intelligence: Key Findings</div>
-    <div class="chtitle">Recommended Actions for Leadership</div>
-
-    <div style="margin-top:10px;">
-      <div class="finding">
-        <div class="fn-num">1</div>
-        <div class="fn-text"><strong>China vendor negotiation is a capped strategy.</strong> Beijing's active involvement makes cost absorption demands unsustainable. Vietnam/India diversification must accelerate beyond the current ~4% share.</div>
-      </div>
-      <div class="finding">
-        <div class="fn-num">2</div>
-        <div class="fn-text"><strong>The 4,000-SKU model is a genuine structural advantage.</strong> Sourcing pivots that take Walmart 18+ months take Costco 6–9. Procurement should prioritize SKU-level tariff triage immediately.</div>
-      </div>
-      <div class="finding">
-        <div class="fn-num">3</div>
-        <div class="fn-text"><strong>Kirkland domestic shift to 70% is the right playbook.</strong> Extend this model to hardlines and select electronics categories where domestic or nearshore alternatives exist.</div>
-      </div>
-      <div class="finding">
-        <div class="fn-num">4</div>
-        <div class="fn-text"><strong>Membership fee buffer is real but finite.</strong> At 65% of net profit from fees, Costco can absorb ~120–150bp of margin compression before member value proposition is at risk. Current exposure is 3.8%.</div>
-      </div>
-      <div class="finding">
-        <div class="fn-num">5</div>
-        <div class="fn-text"><strong>Supplier risk AI is the most underpenetrated lever.</strong> Only 21% of retailers use AI for supplier monitoring today. Early investment here directly reduces the next tariff shock's impact on procurement.</div>
-      </div>
-    </div>
-  </div>
-
-</div><!-- /grid -->
-
-<!-- FOOTER -->
-<div class="footer">
-  <div class="footer-src">
-    <strong>Data Sources:</strong> Costco Wholesale 10-K &amp; Q3 FY2025 Earnings Call · U.S. Census Bureau Trade Data · BLS Import Price Indexes ·
-    Deloitte 2026 Retail Global Outlook · SupplyChainBrain · Amperity State of AI in Retail 2025 · McKinsey State of Fashion 2026
-  </div>
-  <div class="footer-note">
-    Internal Use Only · Costco Supply Chain &amp; Procurement Team<br>
-    All scenario estimates are illustrative. Not for external distribution.
-  </div>
-</div>
-
-</div><!-- /page -->
+</main>
 </body>
 </html>
